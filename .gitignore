@@ -1,0 +1,31 @@
+# 個人檔案（自己的網址、通行碼、真實資料、產生器腳本）
+private/
+
+# 建置暫存
+build/
+dist/
+shortcut/build/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# macOS
+.DS_Store
+._*
+Icon?
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+
+# Office／試算表暫存檔
+~$*.xlsx
+.~lock.*#
+
+# 環境變數檔（保險起見，任何位置都不上傳）
+.env
+*.env
