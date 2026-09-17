@@ -1,11 +1,11 @@
 # 捷徑分帳
 
 出國旅遊的多人分帳工具。用 **iPhone 內建的「捷徑」** 記帳，帳目自動存進 **Google 試算表**。
-不用下載 App、不用付費、不用懂程式。
 
 > A group expense splitter for trips using iPhone Shortcuts + Google Sheets. No app, no server, free.
 
-<!-- 📷 建議放圖：主選單＋記帳通知的手機截圖（docs/images/00-cover.png） -->
+<img src="docs/images/image01.png" width="140"> <img src="docs/images/image02.png" width="330">
+<img src="docs/images/image03.png">
 
 ---
 
@@ -28,8 +28,6 @@
 
 **🔁 下次旅行繼續用**
 開一份新的試算表就是新的旅程，朋友手機上的捷徑不用重新安裝。
-
-<!-- 📷 建議放圖：查帳結果的截圖（docs/images/01-balance.png） -->
 
 ## 運作方式
 
@@ -69,10 +67,9 @@ flowchart LR
 4. 上傳完成後，**雙擊**這個檔案打開。
 5. 點上方選單 **「檔案」→「儲存為 Google 試算表」**。
 6. 會自動打開一份新的試算表，**之後都用這一份**（原本的 xlsx 可以刪掉）。
+> 點取代或是插入新工作表都可以 但匯入後多的這三個工作表不能改名稱
 
-> ⚠️ 第 5 步一定要做。沒有轉存的話，後面的步驟會讀不到資料。
-
-<!-- 📷 建議放圖：「檔案 → 儲存為 Google 試算表」選單位置（docs/images/02-save-as-sheets.png） -->
+<img src="docs/images/image04.png">
 
 ### 2. 填寫旅程資料
 
@@ -93,8 +90,6 @@ flowchart LR
 - 最常用的貨幣放在最上面（A8），記帳時它會排第一個。
 
 > ⚠️ 不要在「設定」分頁插入或刪除整列、也不要改分頁名稱，否則會讀不到資料。
-
-<!-- 📷 建議放圖：填好的設定分頁（docs/images/03-settings.png） -->
 
 ### 3. 刪掉範例資料
 
@@ -135,23 +130,28 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 5. 回到 Apps Script，把編輯區裡原本的文字 **全部刪掉**，再 **貼上** 剛剛複製的內容。
 6. 按 **⌘ + S**（Windows 按 **Ctrl + S**）儲存。
 
-<!-- 📷 建議放圖：貼好程式的 Apps Script 畫面（docs/images/04-paste-code.png） -->
-
 ### 2. 產生通行碼
 
 通行碼是用來擋掉陌生人的密碼，會自動產生。
 
 1. 在編輯區上方，找到「偵錯」右邊的 **下拉選單**，選 **`setupToken`**。
 2. 按 **「▷ 執行」**。
+
+   <img src="docs/images/image06.png" width="240">
+
 3. 第一次執行會跳出授權視窗：
    1. 按 **「審查權限」**，選你的 Google 帳號。
    2. 出現「Google 尚未驗證這個應用程式」→ 點左下角 **「進階」**。
    3. 點 **「前往「分帳」（不安全）」**。
    4. 按 **「允許」**。
    > 這是你自己剛建立的程式，所以 Google 會這樣提醒，是正常的。
-4. 畫面下方的「執行紀錄」會出現一行 **「已產生通行碼 TOKEN：xxxxxxxx」**，把這串通行碼 **複製起來**。
 
-<!-- 📷 建議放圖：函式下拉選單＋執行紀錄裡的通行碼（docs/images/05-token.png） -->
+   <img src="docs/images/image05.png">
+4. 畫面下方的「執行紀錄」會出現一行 **「已產生通行碼 TOKEN：xxxxxxxx」**，把這串通行碼 **複製起來**。
+   <img src="docs/images/image07.png" width="420">
+
+   > 如果這裡沒出現，可以點選最左邊選單的 **「專案設定」**，滑到最下方有個指令碼屬性，也可以看到通行碼 TOKEN
+   <img src="docs/images/image08.png" width="420">
 
 ### 3. 連接試算表
 
@@ -160,8 +160,7 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 3. **屬性** 填 `SPREADSHEET_ID`（全部大寫，一字不差）。
 4. **值** 貼上第一部分第 4 步的 **試算表 ID**。
 5. 按 **「儲存指令碼屬性」**。
-
-<!-- 📷 建議放圖：指令碼屬性的畫面（docs/images/06-properties.png） -->
+<img src="docs/images/image09.png" width="420">
 
 ### 4. 檢查設定
 
@@ -169,6 +168,7 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 2. 下拉選單選 **`checkSetup`**，按 **「▷ 執行」**。
 3. 執行紀錄出現 **「設定正確 ✅」** 和你填的成員名字，就代表連上試算表了。
    如果出現錯誤，照錯誤訊息檢查試算表 ID 或「設定」分頁。
+<img src="docs/images/image10.png" width="240">
 
 ### 5. 發布成網址
 
@@ -177,12 +177,14 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 3. 設定：
    - **說明**：隨便填，例如 `分帳`
    - **執行身分**：**我**
-   - **誰可以存取**：**任何人**
-   > ⚠️ 要選「任何人」，不是「擁有 Google 帳戶的任何人」，選錯手機會連不上。
+   - **誰可以存取**：**所有人**
+   > ⚠️ 要選「所有人」，不是「擁有 Google 帳戶的任何人」，選錯手機會連不上。
 4. 按 **「部署」**（如果又跳出授權，照第 2 步的方式允許）。
+<img src="docs/images/image11.png" width="240">
+
 5. 畫面會顯示 **「網頁應用程式」網址**（`https://script.google.com/macros/s/.../exec`），按 **「複製」** 存起來。
 
-<!-- 📷 建議放圖：部署設定畫面，標出「任何人」（docs/images/07-deploy.png） -->
+
 
 **確認是否成功：** 打開瀏覽器的 **無痕視窗**，貼上這個網址。看到 **「分帳 API 運作中」** 就成功了 🎉
 
@@ -203,12 +205,12 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 2. 找到「分帳」，點卡片右上角的 **「⋯」** 進入編輯畫面。
 3. 最上面有一段 **「⚙️ 設定區」** 的說明，下面有兩個文字欄位：
    - 第一個：把「請在這裡貼上你的 Apps Script 網址」整段刪掉，貼上 **網址**
-   - 第二個：把「請在這裡貼上你的通行碼」整段刪掉，貼上 **通行碼**
+   - 第二個：把「請在這裡貼上你的通行碼」整段刪掉，貼上 **通行碼 TOKEN**
 4. 按右上角 **「完成」**。
 
 > 沒填就執行的話，捷徑會跳出「還沒設定完成」的提醒，不會亂連線。
 
-<!-- 📷 建議放圖：捷徑編輯畫面的設定區，標出兩個文字框（docs/images/08-shortcut-settings.png） -->
+<img src="docs/images/image12.png" width="420">
 
 ### 3. 第一次執行
 
@@ -296,8 +298,8 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 | 通行碼錯誤 | 捷徑裡的通行碼貼錯了。到 Apps Script 再執行一次 `setupToken`，執行紀錄會顯示正確的通行碼 |
 | 身份不在成員名單 | 試算表的成員改過或換了新旅程，在捷徑選「重新設定」 |
 | 找不到「○○」分頁 | 試算表的分頁被改名了，改回「設定」、「記帳」、「結算」 |
-| 無法從「RTF」轉換到「辭典」 | 捷徑收到的是網頁而不是資料。通常是網址貼錯，或部署時「誰可以存取」沒選「任何人」，照第二部分第 5 步檢查 |
-| 無痕視窗打開網址要求登入 | 部署時「誰可以存取」沒選「任何人」。到「部署」→「管理部署作業」→ 鉛筆圖示 → 改成「任何人」，版本選「新版本」→ 部署 |
+| 無法從「RTF」轉換到「辭典」 | 捷徑收到的是網頁而不是資料。通常是網址貼錯，或部署時「誰可以存取」沒選「所有人」，照第二部分第 5 步檢查 |
+| 無痕視窗打開網址要求登入 | 部署時「誰可以存取」沒選「所有人」。到「部署」→「管理部署作業」→ 鉛筆圖示 → 改成「所有人」，版本選「新版本」→ 部署 |
 | 朋友的捷徑沒有更新 | iCloud 連結是分享當下的版本，改過捷徑要重新拷貝連結傳一次 |
 
 ## 注意事項
