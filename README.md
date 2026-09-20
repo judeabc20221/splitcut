@@ -49,7 +49,7 @@ flowchart LR
 |---|---|
 | [分帳範本.xlsx](sheets/分帳範本.xlsx) | 試算表公版 |
 | [Code.gs](apps_script/Code.gs) | 要貼進 Google Apps Script 的程式 |
-| [加入「分帳」捷徑](https://www.icloud.com/shortcuts/0dc18e09403448588dfa4df755e91b60) | 用 iPhone 點這個連結安裝捷徑 |
+| [加入「分帳」捷徑](https://www.icloud.com/shortcuts/b75f20a5d7674783bbdc0e01036651e0) | 用 iPhone 點這個連結安裝捷徑 |
 
 ---
 
@@ -196,7 +196,7 @@ https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0
 
 ### 1. 加入捷徑
 
-1. 用 **iPhone** 點這個連結：**[👉 加入「分帳」捷徑](https://www.icloud.com/shortcuts/0dc18e09403448588dfa4df755e91b60)**
+1. 用 **iPhone** 點這個連結：**[👉 加入「分帳」捷徑](https://www.icloud.com/shortcuts/b75f20a5d7674783bbdc0e01036651e0)**
 2. 按 **「加入捷徑」**。
 
 ### 2. 填入網址和通行碼
